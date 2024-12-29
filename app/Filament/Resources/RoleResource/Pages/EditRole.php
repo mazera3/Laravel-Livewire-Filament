@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace App\Filament\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\UserResource;
+use App\Filament\Resources\RoleResource;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Auth;
 
-class EditUser extends EditRecord
+class EditRole extends EditRecord
 {
-    protected static string $resource = UserResource::class;
+    protected static string $resource = RoleResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -18,22 +18,22 @@ class EditUser extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
-    // Redireciona
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
     }
-    
+
     protected function getSavedNotificationTitle(): ?string
     {
-        return 'User updated';
+        return 'Role updated';
     }
 
-    //   // dispara notificação
-    // protected function beforeSave(): void
-    // {
-    //     Notification::make()
-    //         ->title('Account Updated')
-    //         ->sendToDatabase(Auth::user());
-    // }
+      // dispara notificação
+    protected function beforeSave(): void
+    {
+        Notification::make()
+            ->title('Account Updated')
+            ->sendToDatabase(Auth::user());
+    }
 }

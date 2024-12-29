@@ -23,12 +23,16 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $mes = rand(1,12);
+        $dia = rand(1,30);
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            // 'document' => Str::random(14),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('123456'),
             'remember_token' => Str::random(10),
+            'created_at' => "2024-" . $mes ."-" . $dia ." 19:00:00"
         ];
     }
 
