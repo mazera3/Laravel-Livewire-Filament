@@ -12,7 +12,6 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
-use Illuminate\Database\Eloquent\Builder;
 
 
 class RoleResource extends Resource

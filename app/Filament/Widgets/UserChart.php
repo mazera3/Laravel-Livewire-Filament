@@ -27,7 +27,7 @@ class UserChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Blog posts',
+                    'label' => 'Usuários',
                     'data' => $data->map(fn(TrendValue $value) => $value->aggregate),
                     'backgroundColor' => '#ADFF2F',
                     'borderColor' => '#0000CD',

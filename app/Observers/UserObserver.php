@@ -25,7 +25,7 @@ class UserObserver
                     ->url(route('filament.admin.pages.dashboard')),
             ])
             ->sendToDatabase($user->first());
-            //
+            // getId() === 'Admin'
     }
 
     /**
