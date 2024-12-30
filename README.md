@@ -23,4 +23,4 @@ npm run dev # Executar as bibliotecas Node.js.
 http://127.0.0.1:8000 # Acessar no navegador a URL
 ```
 # Como Implementar esse projeto
-Consulte a documentação aqui.
+Consulte a documentação wiki [aqui](https://github.com/mazera3/Laravel-React-Filament/wiki)
