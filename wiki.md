@@ -16,9 +16,15 @@ APP_URL=http://localhost:8000 # porta 8000
 APP_LOCALE=pt_BR # en
 QUEUE_CONNECTION=sync # database
 
+# gerar a chave key
+php artisan key:generate
+
 php artisan migrate # executar a migração
 
 php artisan serve # executar a aplicação
+# execute: npm run build
+npm install
+npm run build
 ```
 
 ## Instalação do Filament

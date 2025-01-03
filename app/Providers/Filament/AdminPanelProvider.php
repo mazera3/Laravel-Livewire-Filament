@@ -2,11 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Responses\CustonLogoutResponse;
 use Filament\Forms\Components\Field;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Http\Responses\Auth\LogoutResponse;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -35,12 +37,14 @@ class AdminPanelProvider extends PanelProvider
                 Column::configureUsing(function (Column $column) {
                     $column->translateLabel();
                 });
+                app()->bind(LogoutResponse::class, CustonLogoutResponse::class);
             })
             ->sidebarFullyCollapsibleOnDesktop()
             ->default()
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -48,9 +52,9 @@ class AdminPanelProvider extends PanelProvider
             ->databaseNotificationsPolling('5s')
             ->topNavigation()
             //************************ */
-            ->brandName('BibeLivre')
-            ->brandLogo(fn(): View => view('filament.logo'))
-            ->brandLogoHeight(fn() => Auth::check() ? '32px' : '64px')
+            ->brandName('Painel Administrativo')
+            // ->brandLogo(fn(): View => view('filament.logo'))
+            // ->brandLogoHeight(fn() => Auth::check() ? '32px' : '64px')
             ->viteTheme('resources/css/filament/admin/theme.css')
             // ->brandLogo(asset('images/computador.svg'))
             // ->darkModeBrandLogo(asset('images/linkedin.jpg'))
